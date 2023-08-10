@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@alpinejs/collapse": "^3.12.3",
+    "alpinejs": "^3.12.3"
+  }
+}
