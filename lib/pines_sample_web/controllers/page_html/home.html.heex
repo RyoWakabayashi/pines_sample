@@ -5,5 +5,13 @@
       <p class="text-xl font-bold mb-4">Accordion</p>
       <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
     </div>
+    <div>
+      <p class="text-xl font-bold mb-4">Alert</p>
+      <%= for alert <- @alerts do %>
+        <div class="m-4">
+          <PinesSampleWeb.Components.Alert.render level={alert.level} title={alert.title} message={alert.message} />
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
