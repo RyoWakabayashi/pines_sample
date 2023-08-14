@@ -1,9 +1,16 @@
 defmodule PinesSampleWeb.Components.Alert do
+  @moduledoc """
+  Alert.
+
+  # Example
+  <PinesSampleWeb.Components.Alert.render level={alert.level} title={alert.title} message={alert.message} />
+  """
   use Phoenix.Component
 
   @levels ~w(info success warning error)
 
   attr :level, :string
+  attr :icon, :string, default: ""
   attr :title, :string
   attr :message, :string
 
@@ -11,8 +18,8 @@ defmodule PinesSampleWeb.Components.Alert do
     bg_color =
       case assigns.level do
         "info" -> "bg-blue-600"
-        "success" -> "bg-green-600"
-        "warning" -> "bg-yellow-600"
+        "success" -> "bg-green-500"
+        "warning" -> "bg-yellow-500"
         "error" -> "bg-red-600"
         _ -> "white"
       end
@@ -31,15 +38,39 @@ defmodule PinesSampleWeb.Components.Alert do
         ""
       end
 
+    icon =
+      if assigns.icon == "" do
+        assigns.level
+      else
+        assigns.icon
+      end
+
+    icon_size =
+      if assigns.level in @levels do
+        "5"
+      else
+        "4"
+      end
+
+    icon_translate =
+      if assigns.level in @levels do
+        "-translate-y-0.5"
+      else
+        ""
+      end
+
     assigns =
       assigns
       |> assign(:bg_color, bg_color)
       |> assign(:text_color, text_color)
       |> assign(:border_color, border_color)
+      |> assign(:icon, icon)
+      |> assign(:icon_size, icon_size)
+      |> assign(:icon_translate, icon_translate)
 
     ~H"""
     <div class={"relative w-full rounded-lg border #{@border_color} #{@bg_color} p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11 #{@text_color}"}>
-      <svg class="w-5 h-5 -translate-y-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+      <PinesSampleWeb.Components.Icon.render shape={@icon} size={@icon_size} translate={@icon_translate}/>
       <h5 class="mb-1 font-medium leading-none tracking-tight">
         <%= @title %>
       </h5>

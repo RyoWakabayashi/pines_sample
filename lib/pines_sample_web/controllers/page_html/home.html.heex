@@ -1,17 +1,36 @@
 <.flash_group flash={@flash} />
-<div class="flex justify-center p-24">
+<div class="flex justify-center p-4">
   <div class="w-1/2">
-    <div>
-      <p class="text-xl font-bold mb-4">Accordion</p>
-      <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
+    <div class="mb-4">
+      <p class="text-3xl font-bold">Pines Components</p>
     </div>
-    <div>
+    <div class="m-4">
+      <p class="text-xl font-bold mb-4">Accordion</p>
+      <div class="flex items-center justify-center p-8 border border-nuetral-300 rounded-xl">
+        <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
+      </div>
+    </div>
+    <div class="m-4">
       <p class="text-xl font-bold mb-4">Alert</p>
-      <%= for alert <- @alerts do %>
-        <div class="m-4">
-          <PinesSampleWeb.Components.Alert.render level={alert.level} title={alert.title} message={alert.message} />
-        </div>
-      <% end %>
+      <div class="flex flex-col items-center justify-center space-y-4 p-8 border border-nuetral-300 rounded-xl">
+        <%= for alert <- @alerts do %>
+          <PinesSampleWeb.Components.Alert.render level={alert.level} icon={Map.get(alert, :icon, "")} title={alert.title} message={alert.message} />
+        <% end %>
+      </div>
+    </div>
+    <div class="m-4">
+      <p class="text-xl font-bold mb-4">Badge</p>
+      <div class="flex items-center justify-center space-x-2 p-8 border border-nuetral-300 rounded-xl">
+        <%= for badge <- @badges do %>
+          <PinesSampleWeb.Components.Badge.render level={badge.level} text={badge.text} />
+        <% end %>
+      </div>
+    </div>
+    <div class="m-4">
+      <p class="text-xl font-bold mb-4">Banner</p>
+      <div class="h-40 relative overflow-hidden p-8 border border-nuetral-300 rounded-xl">
+        <PinesSampleWeb.Components.Banner.render title="Banner" message="Hello" href="#" />
+      </div>
     </div>
   </div>
 </div>

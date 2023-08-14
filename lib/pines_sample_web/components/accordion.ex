@@ -1,4 +1,10 @@
 defmodule PinesSampleWeb.Components.Accordion do
+  @moduledoc """
+  Accordion.
+
+  # Example
+  <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
+  """
   use Phoenix.Component
 
   attr :accordions, :list
