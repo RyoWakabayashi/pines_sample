@@ -87,6 +87,32 @@ defmodule PinesSampleWeb.PageController do
         text: "Link 3"
       }
     ])
+    |> assign(:buttons, [
+      %{
+        text: "Button 1",
+        bg_color: "white",
+      },
+      %{
+        text: "Button 2",
+        bg_color: "black",
+      },
+      %{
+        text: "Button 3",
+        bg_color: "blue"
+      },
+      %{
+        text: "Button 4",
+        bg_color: "red"
+      },
+      %{
+        text: "Button 5",
+        bg_color: "green"
+      },
+      %{
+        text: "Button 6",
+        bg_color: "yellow"
+      },
+    ])
     |> render(:home, layout: false)
   end
 end
