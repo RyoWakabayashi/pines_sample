@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Icon do
   # Example
   <PinesSampleWeb.Components.Icon.render shape="info" />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   attr :shape, :string
   attr :size, :string, default: "5"

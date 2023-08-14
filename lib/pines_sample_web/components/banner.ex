@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Banner do
   # Example
   <PinesSampleWeb.Components.Banner.render title="Banner" message="Hello" href="#" />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   attr :title, :string
   attr :message, :string

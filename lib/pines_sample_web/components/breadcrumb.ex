@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Breadcrumb do
   # Example
   <PinesSampleWeb.Components.Breadcrumb.render links={links} />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   attr :links, :list
 

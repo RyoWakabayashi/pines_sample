@@ -1,0 +1,68 @@
+<div class="w-8/12">
+  <div class="mb-4">
+    <p class="text-3xl font-bold">Pines Components</p>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Accordion</p>
+    <div class="flex items-center justify-center p-8 border border-nuetral-300 rounded-md">
+      <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Alert</p>
+    <div class="flex flex-col items-center justify-center space-y-4 p-8 border border-nuetral-300 rounded-md">
+      <%= for alert <- @alerts do %>
+        <PinesSampleWeb.Components.Alert.render
+          level={alert.level}
+          icon={Map.get(alert, :icon, "")}
+          title={alert.title}
+          message={alert.message}
+        />
+      <% end %>
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Badge</p>
+    <div class="flex items-center justify-center space-x-2 p-8 border border-nuetral-300 rounded-md">
+      <%= for badge <- @badges do %>
+        <PinesSampleWeb.Components.Badge.render level={badge.level} text={badge.text} />
+      <% end %>
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Banner</p>
+    <div class="h-40 relative overflow-hidden p-8 border border-nuetral-300 rounded-md">
+      <PinesSampleWeb.Components.Banner.render title="Banner" message="Hello" href="#" />
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Breadcrumb</p>
+    <div class="relative p-8 border border-nuetral-300 rounded-md">
+      <PinesSampleWeb.Components.Breadcrumb.render links={@links} />
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Button</p>
+    <div class="flex items-center justify-center space-x-4 p-8 border border-nuetral-300 rounded-md">
+      <%= for button <- @buttons do %>
+        <PinesSampleWeb.Components.Button.render
+          text={button.text}
+          bg_color={button.bg_color}
+          event={button.event}
+        />
+      <% end %>
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Card</p>
+    <div class="flex items-center justify-center space-x-4 p-8 border border-nuetral-300 rounded-md">
+      <PinesSampleWeb.Components.Card.render
+        img_src="https://www.phoenixframework.org/images/blog/1.7-released-e6dc45801b961cb0bb04e6e2a907fbc4.png?vsn=d"
+        title="Card"
+        message="Card message"
+        button_text="Button"
+        button_event="card_button_clicked"
+      />
+    </div>
+  </div>
+</div>

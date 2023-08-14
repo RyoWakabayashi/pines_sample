@@ -5,10 +5,11 @@ defmodule PinesSampleWeb.Components.Button do
   # Example
   <PinesSampleWeb.Components.Button.render text="Click" bg_color="blue" />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   attr :text, :string
   attr :bg_color, :string, default: "white"
+  attr :event, :string, default: "button_clicked"
 
   def render(assigns) do
     {bg_color, hover_bg_color, focus_ring_color, color} =
@@ -29,7 +30,11 @@ defmodule PinesSampleWeb.Components.Button do
       |> assign(:color, color)
 
     ~H"""
-    <button type="button" class={"inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide #{@color} transition-colors duration-200 #{@bg_color} rounded-md #{@hover_bg_color} focus:ring-2 focus:ring-offset-2 #{@focus_ring_color} focus:shadow-outline focus:outline-none"}>
+    <button
+      type="button"
+      class={"inline-flex items-center justify-center px-4 py-2 text-sm font-medium tracking-wide #{@color} transition-colors duration-200 #{@bg_color} rounded-md #{@hover_bg_color} focus:ring-2 focus:ring-offset-2 #{@focus_ring_color} focus:shadow-outline focus:outline-none"}
+      phx-click={@event}
+    >
       <%= @text %>
     </button>
     """

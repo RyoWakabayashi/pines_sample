@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Alert do
   # Example
   <PinesSampleWeb.Components.Alert.render level={alert.level} title={alert.title} message={alert.message} />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   @levels ~w(info success warning error)
 

@@ -20,6 +20,12 @@ defmodule PinesSampleWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/" do
+    pipe_through :browser
+
+    live "/live", PinesSampleWeb.Showcase
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PinesSampleWeb do
   #   pipe_through :api

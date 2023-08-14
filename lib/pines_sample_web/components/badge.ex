@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Badge do
   # Example
   <PinesSampleWeb.Components.Badge.render level={badge.level} text={badge.text} />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   @levels ~w(info success warning error)
 

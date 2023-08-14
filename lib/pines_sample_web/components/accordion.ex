@@ -5,7 +5,7 @@ defmodule PinesSampleWeb.Components.Accordion do
   # Example
   <PinesSampleWeb.Components.Accordion.render accordions={@accordions} />
   """
-  use Phoenix.Component
+  use PinesSampleWeb, :live_component
 
   attr :accordions, :list
 
