@@ -3,7 +3,7 @@ defmodule PinesSampleWeb.Components.Button do
   Button.
 
   # Example
-  <PinesSampleWeb.Components.Button.render text="Click" />
+  <PinesSampleWeb.Components.Button.render text="Click" bg_color="blue" />
   """
   use Phoenix.Component
 
@@ -13,12 +13,12 @@ defmodule PinesSampleWeb.Components.Button do
   def render(assigns) do
     {bg_color, hover_bg_color, focus_ring_color, color} =
       case assigns.bg_color do
-        "white" -> {"bg-white", "hover:bg-neutral-100", "focus:ring-neutral-200/60", "text-neutral-500"}
         "black" -> {"bg-neutral-950", "hover:bg-neutral-900", "focus:ring-neutral-900", "text-white"}
         "blue" -> {"bg-blue-600", "hover:bg-blue-700", "focus:ring-blue-700", "text-white"}
         "red" -> {"bg-red-600", "hover:bg-red-700", "focus:ring-red-700", "text-white"}
         "green" -> {"bg-green-600", "hover:bg-green-700", "focus:ring-green-700", "text-white"}
         "yellow" -> {"bg-yellow-500", "hover:bg-yellow-600", "focus:ring-yellow-600", "text-white"}
+        _ -> {"bg-white", "hover:bg-neutral-100", "focus:ring-neutral-200/60", "text-neutral-500"}
       end
 
     assigns =
