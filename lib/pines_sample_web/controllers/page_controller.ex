@@ -69,6 +69,24 @@ defmodule PinesSampleWeb.PageController do
         text: "Badge 5"
       }
     ])
+    |> assign(:links, [
+      %{
+        href: "#",
+        text: "Top"
+      },
+      %{
+        href: "#",
+        text: "Link 1"
+      },
+      %{
+        href: "#",
+        text: "Link 2"
+      },
+      %{
+        href: "#",
+        text: "Link 3"
+      }
+    ])
     |> render(:home, layout: false)
   end
 end
