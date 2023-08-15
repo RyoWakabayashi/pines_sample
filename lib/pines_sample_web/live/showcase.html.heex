@@ -55,7 +55,7 @@
   </div>
   <div class="m-4">
     <p class="text-xl font-bold mb-4">Card</p>
-    <div class="flex items-center justify-center space-x-4 p-8 border border-nuetral-300 rounded-md">
+    <div class="flex items-center justify-center p-8 border border-nuetral-300 rounded-md">
       <PinesSampleWeb.Components.Card.render
         img_src="https://www.phoenixframework.org/images/blog/1.7-released-e6dc45801b961cb0bb04e6e2a907fbc4.png?vsn=d"
         title="Card"
@@ -63,6 +63,14 @@
         button_text="Button"
         button_event="card_button_clicked"
       />
+    </div>
+  </div>
+  <div class="m-4">
+    <p class="text-xl font-bold mb-4">Modal</p>
+    <div class="flex items-center justify-center p-8 border border-nuetral-300 rounded-md">
+      <PinesSampleWeb.Components.Modal.render button_text="Open Modal" modal_title="Modal Title">
+        <p>Modal content</p>
+      </PinesSampleWeb.Components.Modal.render>
     </div>
   </div>
 </div>
